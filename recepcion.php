@@ -45,5 +45,25 @@
         <input type="hidden" id="observaciones" name="observaciones" value="<?php echo $observaciones ?>">
         <input type="submit" value="Modificar pedido">
     </form>
+
+    <!-- Realizar pedido -->
+
+    <form action="./validacion.php" method="POST">
+        <input type="hidden" id="pedidook" name="pedidook" value="pedidook">
+        <input type="hidden" id="username" name="username" value="<?php echo $username ?>">
+        <input type="hidden" id="email" name="email" value="<?php echo $email ?>">
+        <input type="hidden" id="tienda" name="tienda" value="<?php echo $tienda ?>">
+        <?php 
+            if (isset($_POST['juegos'])) {
+                foreach ($juegos as $juego) {
+                    echo '<input type="hidden" name="juegos[]" value="'.$juego.'">';
+                }
+            }
+        ?>
+
+        <input type="hidden" id="pago" name="pago" value="<?php echo $pago ?>">
+        <input type="hidden" id="observaciones" name="observaciones" value="<?php echo $observaciones ?>">
+        <input type="submit" value="Realizar pedido">
+    </form>        
 </body>
 </html>
